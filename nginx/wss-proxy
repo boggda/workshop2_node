@@ -1,0 +1,17 @@
+server {
+    listen              443 ssl;
+    ssl_certificate     /etc/ssl/certs/selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/selfsigned.key;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+
+    location / {
+        proxy_buffers 16 4k;
+        proxy_buffer_size 2k;
+        proxy_pass http://node:9944;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Host $host;
+   }
+}

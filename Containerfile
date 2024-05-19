@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 docker.io/library/ubuntu:22.04
+FROM docker.io/library/ubuntu:22.04
 
 # show backtraces
 ENV RUST_BACKTRACE 1
@@ -28,4 +28,4 @@ RUN /usr/bin/node-template --version
 # ws_portb
 EXPOSE 9930 9333 9944 30333 30334
 
-CMD ["/usr/bin/node-template", "--dev"]
+CMD ["/usr/bin/node-template", "--dev", "--unsafe-rpc-external"]
