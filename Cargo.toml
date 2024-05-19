@@ -9,6 +9,7 @@ homepage = "https://substrate.io"
 members = [
     "node",
     "pallets/template",
+    "pallets/vulntoken",
     "runtime",
 ]
 resolver = "2"
